@@ -1,11 +1,11 @@
 Package: ssClust
 Type: Package
 Title: GMM for semi-supervised case a-la Mclust
-Version: 1.3
-Date: 2016-01-14
+Version: 1.4
+Date: 2016-02-05
 Author: Jordan Yoder, tested by Theodore D. Drivas
 Maintainer: Jordan Yoder <jyoder6@jhu.edu>
 Description: Performs GMM for semi-supervised case a-la Mclust
-License: GPL (>= 2)
+License: GPL (>= 2) + LICENSE
 Depends: mclust
 Suggests:  cluster, doMC, foreach, parallel, unittest, MASS, ROCR, irlba, igraph

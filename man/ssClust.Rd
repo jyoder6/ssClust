@@ -12,7 +12,8 @@ ssClust(X, knownLabels = NULL, trueLabels = NULL,
                  knownCannotLink = NULL, cannotLinkWithIdx = NULL,
                  Grange = 2, modelNames = c("VVV"), runParallel = TRUE,
                  fracOfCores2Use = 1, initClassAssignments = NULL,
-                 initializationStrategy = "kpp")
+                 initializationStrategy = "kpp",
+         penalizeSupervised=T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -61,7 +62,9 @@ Fraction of all cores to use (if in parallel)
   \item{initClassAssignments}{
 Hard initial class assignment which overrides the default hiearchical clustering initialization scheme.
 }
-\item{initializationStrategy}{Strategy to initialize cluster labels for EM algorithm.  Currently only supports "kpp" for semi-supervised k-means++}
+\item{initializationStrategy}{Strategy to initialize cluster labels for EM algorithm.  Currently only supports kpp for semi-supervised k-means++}
+
+\item{penalizeSupervised}{Boolean for whether or not to include supervised data in the penalty term in the BIC.  Defaults to TRUE.}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~

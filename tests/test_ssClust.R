@@ -1,6 +1,5 @@
 library(ssClust)
-library(unittest, quietly=T)
-library('ssClust')
+library(unittest, quietly=F)
 library('MASS')
 set.seed(234134)
 n=200
@@ -61,12 +60,3 @@ ss<-ssClust(X,knownLabels=knownLabels,
             trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'), runParallel=F)
 ok(all(ss$cl[knownLabels]==(trueLabels[knownLabels]+1)), 'all known labels are correct (G=2:5,nSup=2, nCannotLink=6  not parallel)')
 ok(all(!ss$cl[knownCannotLink] %in% trueLabels[knownLabels]), 'all labels are correct on easy problem (G=2:5,nSup=2, nCannotLink=6  not parallel)')
-
-
-
-
-
-
-
-
-

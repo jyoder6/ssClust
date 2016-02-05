@@ -9,7 +9,8 @@ function(X,
          runParallel=TRUE,
          fracOfCores2Use=1,
          initClassAssignments=NULL,
-         initializationStrategy="kpp"){
+         initializationStrategy="kpp",
+         penalizeSupervised=T){
   
   loadParallelFramework(runParallel, fracOfCores2Use)
 
@@ -95,9 +96,11 @@ get_model_run = function(num2run, i, indivModels){
   
   
   #PICK WINNER
-  whichIsBest<-which.max(modelsBIC)
-#todo: jdy PICK ONE
-# whichIsBest<-which.max(modelsUnadjustedBIC)
+  if(penalizeSupervised){
+    whichIsBest<-which.max(modelsBIC)
+  } else { 
+    whichIsBest<-which.max(modelsUnadjustedBIC)
+  }
   modelsBIC<-cbind(indivModels,modelsBIC,modelsLoglik)
   classes <- apply(cclustRuns[[whichIsBest]]$z,1,which.max)
   BIC = matrix(modelsBIC$modelsBIC,nrow=length(Grange))
