@@ -28,12 +28,12 @@ for(i in 1:C){
 
 ### check parallel
 knownLabels = 1:10
-ss<-ssClust(X,knownLabels=knownLabels,trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'))
+ss<-ssClust(X,knownLabels=knownLabels,trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'), runParallel=T, fracOfCores2Use = .5)
 ok(all(ss$cl[knownLabels]==(trueLabels[knownLabels]+1)), 'all known labels are correct (G=2:5,nSup=10, parallel)')
 ok(adjustedRandIndex(ss$cl, trueLabels)==1, 'all labels are correct on easy problem (G=2:5,nSup=10, parallel)')
 
 
-ss<-ssClust(X,knownLabels=NULL,trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'))
+ss<-ssClust(X,knownLabels=NULL,trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'), runParallel=T, fracOfCores2Use = .5)
 ok(adjustedRandIndex(ss$cl, trueLabels)==1, 'all labels are correct on easy problem (G=2:5,nSup=0, parallel)')
 
 ## check not parallel

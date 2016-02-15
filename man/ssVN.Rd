@@ -8,7 +8,8 @@ Semi-superved Vertex Nomination
 Uses information about RED and NOT RED memberships to nominate RED vertices.
 }
 \usage{
-ssVN(adj, embeddingDim, knownRed, knownNotRed, initializationStrategy = "kpp", Grange = c(2:5))
+ssVN(adj, embeddingDim, knownRed, knownNotRed, 
+  initializationStrategy = "kpp", Grange = c(2:5))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -79,7 +80,8 @@ B = nu*B1 + (1-nu)*B2
 blockSizes <- n*rho
 
 #simulate graph
-A.igraph<- sbm.game(n, pref.matrix = B, block.sizes = blockSizes, directed = FALSE, loops = FALSE)
+A.igraph<- sbm.game(n, pref.matrix = B, block.sizes = blockSizes, 
+  directed = FALSE, loops = FALSE)
 ###### END FORM ADJ MATRIX ########
 
 #shovel into obj we need

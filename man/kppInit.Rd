@@ -58,7 +58,8 @@ Jordan Yoder
 \examples{
 data = matrix(runif(20),nrow=10,ncol=2)
 library(ssClust)
-centers = kppInit(data, numGroups=3, knownLabels=c(1,2), trueLabels=c(1,0)) #note trueLabels are 0-indexed
+centers = kppInit(data, numGroups=3, 
+knownLabels=c(1,2), trueLabels=c(1,0)) #note trueLabels are 0-indexed
 
 
 all(centers[[1]]==data[2,]) #center 1 must be data2 because the true label of 2 is 0

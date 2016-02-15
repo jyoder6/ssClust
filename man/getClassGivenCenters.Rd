@@ -73,7 +73,8 @@ Jordan Yoder
 \examples{
 data = matrix(runif(20),nrow=10,ncol=2)
 library(ssClust)
-centers = kppInit(data, numGroups=3, knownLabels=c(1,2), trueLabels=c(0,1)) #note trueLabels are 0-indexed
+centers = kppInit(data, numGroups=3, 
+knownLabels=c(1,2), trueLabels=c(0,1)) #note trueLabels are 0-indexed
 knownCannotLink = c(3,4,5,6,7,8)
 cannotLinkWithIdx = new.env()
 for(i in knownCannotLink) cannotLinkWithIdx[[as.character(i)]]=c(1,2)
@@ -83,7 +84,8 @@ cl<-getClassGivenCenters(data,centers,knownLabels=c(1,2),trueLabels=c(0,1),
 
 cl[1]==0
 cl[2]==1
-all(cl[knownCannotLink] == 2) #must be cl2 because cannot link with data1 or data2, which are cl0 and cl1, respectively
+all(cl[knownCannotLink] == 2) #must be cl2 because cannot link 
+#with data1 or data2, which are cl0 and cl1, respectively
 
 
 }

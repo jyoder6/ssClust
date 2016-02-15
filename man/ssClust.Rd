@@ -135,12 +135,14 @@ trueCovMat[[1]]=diag(varOfControlCluster,dataDim)
 trueCovMat[[2]]=diag(1,dataDim)
 trueCovMat[[3]]=diag(1,dataDim)
 for(i in 1:C){
-  X[(cumSumTableLabel[i]+1):(cumSumTableLabel[i+1]),] = mvrnorm(n=tableLabel[i],mu=trueMeans[[i]],Sigma=trueCovMat[[i]])
+  X[(cumSumTableLabel[i]+1):(cumSumTableLabel[i+1]),] = 
+  mvrnorm(n=tableLabel[i],mu=trueMeans[[i]],Sigma=trueCovMat[[i]])
 }
 
 ##### CLUSTER USING ssClust and Mclust ######
 mclust.out <- Mclust(X,G = 2:5, modelNames = c('VVV','EEE','VVI','VII') )
-ssClust.out<-ssClust(X,knownLabels=1:c,trueLabels=trueLabels,Grange=2:5,modelNames=c('VVV','EEE','VVI','VII'), runParallel=FALSE)
+ssClust.out<-ssClust(X,knownLabels=1:c,trueLabels=trueLabels,Grange=2:5,
+modelNames=c('VVV','EEE','VVI','VII'), runParallel=FALSE)
 retVal <- c(adjustedRandIndex(mclust.out$cl[-(1:c)],trueLabels[-(1:c)]),
             adjustedRandIndex(ssClust.out$cl[-(1:c)],trueLabels[-(1:c)]))
 retVal <- ifelse(is.nan(retVal),-1,retVal)
