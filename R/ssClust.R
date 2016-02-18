@@ -97,9 +97,9 @@ get_model_run = function(num2run, i, indivModels){
   
   #PICK WINNER
   if(penalizeSupervised){
-    whichIsBest<-which.max(modelsBIC)
-  } else { 
     whichIsBest<-which.max(modelsUnadjustedBIC)
+  } else { 
+    whichIsBest<-which.max(modelsBIC)
   }
   modelsBIC<-cbind(indivModels,modelsBIC,modelsLoglik)
   classes <- apply(cclustRuns[[whichIsBest]]$z,1,which.max)
