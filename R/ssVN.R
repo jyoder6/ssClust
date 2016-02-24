@@ -38,10 +38,13 @@ function(adj,
   #then process the z's and get mahalanobis distance for rankings
   redRanking <- ss$z[,redClassNumber]
   
-  library('stats')
-  mahalanobisDistances <- mahalanobis(theData, 
-                                      center = ss$parameters$mean[,redClassNumber],
-                                      cov = ss$parameters$variance$sigma[,,redClassNumber])
-  
-  return(list(redRanking=redRanking, redDist = mahalanobisDistances,ssClustObj = ss))
+#   library('stats')
+#   mahalanobisDistances <- mahalanobis(theData, 
+#                                       center = ss$parameters$mean[,redClassNumber],
+#                                       cov = ss$parameters$variance$sigma[,,redClassNumber])
+#   
+#   return(list(redRanking=redRanking, redDist = mahalanobisDistances,ssClustObj = ss))
+
+return(list(redRanking=redRanking, redDist = NULL,ssClustObj = ss))
 }
+
