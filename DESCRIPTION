@@ -3,7 +3,7 @@ Type: Package
 Title: GMM for semi-supervised case a-la Mclust
 Version: 1.4
 Date: 2016-02-05
-Author: Jordan Yoder, tested by Theodore D. Drivas
+Author: Jordan Yoder & Youngser Park. Tested by Theodore D. Drivas
 Maintainer: Jordan Yoder <jyoder6@jhu.edu>
 Description: Performs GMM for semi-supervised case a-la Mclust
 License: GPL (>= 2) + LICENSE
