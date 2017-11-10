@@ -22,7 +22,7 @@ function(X,
   }
   
   Grange = Grange[Grange >= numberOfClassesKnown]
-  
+  if(length(Grange) == 0)stop("No valid number of clusters to consider.  Expand Grange.")
 
   
   #Go through all the models and apply semi-supervised clustering
