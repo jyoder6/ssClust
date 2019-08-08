@@ -25,7 +25,8 @@ kppInit <- function(data,
     numKnownGroups=1
     knownGroups=0
   }
-  
+  if(!is.list(centers))centers=list(centers)
+
   
   numGroupsLeft <- numGroups - numKnownGroups
   

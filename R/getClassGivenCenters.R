@@ -7,7 +7,7 @@ getClassGivenCenters<-function(data,centers,knownLabels=NULL,trueLabels=NULL,
                                cannotLinkWithIdx=NULL){
   if(!is.null(knownLabels)){
     clss <- rep(0,nrow(data))
-    newDat <- data[-knownLabels,]
+    newDat <- data[-knownLabels,, drop=FALSE]
     clss[-knownLabels]<-sapply(1:nrow(newDat),function(rw){
       which.min(unlist(lapply(centers, function(cent){sum((newDat[rw,]-cent)^2)})))-1
     })
